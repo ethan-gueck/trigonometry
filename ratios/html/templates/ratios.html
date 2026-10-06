@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-theme="{{theme_name}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  {{head}}
+  <style>
+{{styles}}
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead__bar">
+        <span class="masthead__kicker">Trigonometry · T.1</span>
+        <a href="https://ethan-gueck.github.io/">ethan-gueck.github.io</a>
+      </div>
+      <div class="masthead__title">
+        <div>
+          <h1 class="masthead__name">{{title}}</h1>
+          <p class="masthead__subtitle">SOH-CAH-TOA: each ratio of a right triangle's sides depends only on the angle θ, not on the triangle's size.</p>
+        </div>
+        <div class="masthead__aside formulas" aria-label="sine theta equals opposite over hypotenuse, cosine theta equals adjacent over hypotenuse, tangent theta equals opposite over adjacent; cosecant theta equals 1 over sine theta, secant theta equals 1 over cosine theta, cotangent theta equals 1 over tangent theta">
+          <p class="formula">
+            sin <span class="var">θ</span> = <span class="frac"><span class="num">opp</span><span class="den">hyp</span></span>
+            <span class="formula__sep">·</span>
+            cos <span class="var">θ</span> = <span class="frac"><span class="num">adj</span><span class="den">hyp</span></span>
+            <span class="formula__sep">·</span>
+            tan <span class="var">θ</span> = <span class="frac"><span class="num">opp</span><span class="den">adj</span></span>
+          </p>
+          <p class="formula">
+            csc <span class="var">θ</span> = <span class="frac"><span class="num">1</span><span class="den">sin <span class="var">θ</span></span></span>
+            <span class="formula__sep">·</span>
+            sec <span class="var">θ</span> = <span class="frac"><span class="num">1</span><span class="den">cos <span class="var">θ</span></span></span>
+            <span class="formula__sep">·</span>
+            cot <span class="var">θ</span> = <span class="frac"><span class="num">1</span><span class="den">tan <span class="var">θ</span></span></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-body">
+    <div class="widget">
+      <section class="widget__main" aria-label="Animation">
+        <div class="stage">
+          <canvas id="scene"></canvas>
+          {{stage_settings}}
+          <button id="run" class="stage__run" type="button">▶ Run animation</button>
+        </div>
+        <div class="narration" id="narration" aria-live="polite">Press run to animate.</div>
+        <div class="transport">
+          <button id="play" class="btn btn--primary btn--pill" type="button">▶ Play</button>
+          <button id="finish" class="btn btn--pill" type="button">Show final</button>
+          <input id="scrub" type="range" min="0" max="1000" value="1000" aria-label="Timeline position">
+          <label class="inline">Speed
+            <select id="speed" class="select">
+              <option value="0.5">0.5×</option>
+              <option value="1" selected>1×</option>
+              <option value="2">2×</option>
+            </select>
+          </label>
+        </div>
+
+        <section class="panel steps-panel" aria-labelledby="steps-title">
+          <div class="panel__head">
+            <h2 class="panel__title" id="steps-title">Step by step</h2>
+            {{code_button}}
+          </div>
+          <ol class="steps steps--compact" id="steps"></ol>
+          <p class="steps__note">SOH-CAH-TOA: Sine = Opposite / Hypotenuse, Cosine = Adjacent / Hypotenuse, Tangent = Opposite / Adjacent. Each reciprocal flips its fraction: csc = h/o, sec = h/a, cot = a/o.</p>
+        </section>
+      </section>
+
+      <aside class="widget__side">
+        <fieldset class="panel">
+          <legend>The triangle</legend>
+          <label class="mode-pick">
+            <span class="visually-hidden">What to set</span>
+            <select id="mode" class="select">
+              <option value="sides">From its two legs</option>
+              <option value="angle">From an angle and the hypotenuse</option>
+            </select>
+          </label>
+          <p class="mode-about" id="mode-about"></p>
+          <div class="field" data-mode="sides">
+            <label for="o-num"><span class="var">o</span></label>
+            <input id="o-range" type="range" min="0.5" max="20" step="0.5" aria-label="opposite side slider">
+            <input id="o-num" type="number" step="any">
+          </div>
+          <div class="field" data-mode="sides">
+            <label for="a-num"><span class="var">a</span></label>
+            <input id="a-range" type="range" min="0.5" max="20" step="0.5" aria-label="adjacent side slider">
+            <input id="a-num" type="number" step="any">
+          </div>
+          <div class="field" data-mode="angle" hidden>
+            <label for="theta-num"><span class="var">θ</span>°</label>
+            <input id="theta-range" type="range" min="1" max="89" step="1" aria-label="angle slider, in degrees">
+            <input id="theta-num" type="number" step="any">
+          </div>
+          <div class="field" data-mode="angle" hidden>
+            <label for="h-num"><span class="var">h</span></label>
+            <input id="h-range" type="range" min="0.5" max="20" step="0.5" aria-label="hypotenuse slider">
+            <input id="h-num" type="number" step="any">
+          </div>
+          <p id="error" class="error" role="alert" hidden></p>
+          <div class="chips">
+            <p class="chips__label">From the legs</p>
+            <button class="btn" type="button" data-preset="sides:3,4">3–4–5</button>
+            <button class="btn" type="button" data-preset="sides:5,12">5–12–13</button>
+            <button class="btn" type="button" data-preset="sides:8,15">8–15–17</button>
+            <button class="btn" type="button" data-preset="sides:6,8">6–8–10</button>
+            <p class="chips__label">From an angle (θ°, h)</p>
+            <button class="btn" type="button" data-preset="angle:30,2">30°, h = 2</button>
+            <button class="btn" type="button" data-preset="angle:45,1">45°, h = 1</button>
+            <button class="btn" type="button" data-preset="angle:60,2">60°, h = 2</button>
+            <button class="btn" type="button" data-preset="angle:20,10">20°, h = 10</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="panel">
+          <legend>Results</legend>
+          <dl class="results" id="results"></dl>
+          <details class="glossary">
+            <summary>What these terms mean</summary>
+            <dl class="terms" id="glossary"></dl>
+          </details>
+        </fieldset>
+      </aside>
+    </div>
+  </main>
+
+  <script id="pp-config" type="application/json">{{config}}</script>
+  <script>
+{{scripts}}
+  </script>
+</body>
+</html>

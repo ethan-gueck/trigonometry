@@ -1,0 +1,29 @@
+/* ratios.css: page-specific styles for the right-triangle trigonometric ratios (formula typesetting as on the algebra and geometry pages). */
+.formula { margin: 0; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.3em; font-family: var(--font-serif); font-size: var(--fs-md); }
+.formula__sep { margin: 0 0.35em; opacity: 0.6; }
+.formulas { display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-2); }
+.frac { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.25; font-size: 0.85em; }
+.frac .num { padding: 0 0.3em 0.1em; border-bottom: 1.5px solid currentColor; }
+.frac .den { padding-top: 0.1em; }
+
+.steps-panel { margin-top: var(--space-4); }
+.steps__note { margin: var(--space-3) 0 0; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--text-soft); }
+
+.terms { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.terms dt { color: var(--text); font-weight: 600; padding-top: var(--space-2); }
+.terms dd { margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--text-soft); }
+.glossary { margin-top: var(--space-3); }
+.glossary summary { cursor: pointer; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--primary-soft); }
+.glossary .terms { display: grid; margin: 0; }
+
+/* Yes / no for the check that the side ratios and the angle's ratios agree. */
+.verdict-yes { color: var(--primary); font-weight: 600; }
+.verdict-no { color: var(--text-soft); }
+
+/* Two legs or an angle and the hypotenuse: the mode picker shows that mode's fields only. */
+.mode-pick { display: block; margin-bottom: var(--space-2); }
+.mode-pick .select { width: 100%; }
+.mode-about { margin: 0 0 var(--space-2); font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--text-soft); }
+.field[hidden] { display: none; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.chips__label { width: 100%; margin: var(--space-2) 0 0; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--text-soft); }
