@@ -262,7 +262,7 @@
   function syncInputs() {
     el.mode.value = state.mode;
     el.modeAbout.textContent = ABOUT[state.mode];
-    document.querySelectorAll("[data-mode]").forEach((field) => { field.hidden = field.dataset.mode !== state.mode; });
+    document.querySelectorAll(".field[data-input-mode]").forEach((field) => { field.hidden = field.dataset.inputMode !== state.mode; });
     for (const key of KEYS[state.mode]) {
       $(`${key}-range`).value = state[key];
       $(`${key}-num`).value = state[key];

@@ -30,3 +30,9 @@ def test_config_carries_solution_and_roles():
     angle = _config(build_ratios_html(theta=30, h=2, output_path=None))
     assert angle["initial"] == {"mode": "angle", "theta": 30, "h": 2} and angle["solution"]["texts"]["sin"] == "0.5"
     assert set(ROLES.values()) <= set(legs["theme"]["stage"])
+
+
+def test_fields_do_not_use_data_mode():
+    # <html data-mode="dark"> is how general/ marks dark mode, so a [data-mode] selector here would hide the whole page.
+    document = build_ratios_html(output_path=None)
+    assert '<div class="field" data-mode' not in document and 'querySelectorAll("[data-mode]")' not in document
