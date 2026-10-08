@@ -23,7 +23,6 @@ MATH_SCRIPTS = (FMT_SCRIPT, STATIC / "ratios_math.js")
 BUNDLE = WIDGET.extend(css=[STATIC / "ratios.css"], js=[*MATH_SCRIPTS, FIGURE_SCRIPT, STATIC / "ratios.js"])
 # The "View the code" popup shows only the concept: the T.1 section of core/formula.py.
 MATH = (
-    "module",
     "sine", "cosine", "tangent", "cosecant", "secant", "cotangent",
     "sine_theta", "cosine_theta", "tangent_theta", "cosecant_theta", "secant_theta", "cotangent_theta",
 )
