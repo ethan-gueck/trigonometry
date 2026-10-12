@@ -67,24 +67,24 @@ def cotangent_theta(theta:float):
 
 # _____________ T.2 Radians, Degrees & Angular Speed _____________
 
-# _____________ T.3 Unit Circle & Exact Values _____________
+# _____________ T.4 Unit Circle & Exact Values _____________
 
-# _____________ T.4 Pythagorean & Fundamental Identities _____________
+# _____________ T.6 Pythagorean & Fundamental Identities _____________
 
-# _____________ T.5 Sum & Difference Formulas _____________
+# _____________ T.8 Sum & Difference Formulas _____________
 
-# _____________ T.6 Double-Angle & Half-Angle Formulas _____________
+# _____________ T.9 Double-Angle & Half-Angle Formulas _____________
 
-# _____________ T.7 Law of Sines & Triangle Area _____________
+# _____________ T.16 Law of Sines & Triangle Area _____________
 
-# _____________ T.8 Law of Cosines _____________
+# _____________ T.17 Law of Cosines _____________
 
-# _____________ T.9 Graphs of Sinusoids _____________
+# _____________ T.12 Graphs of Sinusoids _____________
 
-# _____________ T.10 Inverse Trigonometric Functions _____________
+# _____________ T.14 Inverse Trigonometric Functions _____________
 
-# _____________ T.11 Polar Coordinates _____________
+# _____________ T.19 Polar Coordinates _____________
 
-# _____________ T.12 Vectors, Dot Product & Cosine Similarity _____________
+# _____________ T.21 Vectors, Dot Product & Cosine Similarity _____________
 
-# _____________ T.13 Euler’s Formula & De Moivre’s Theorem _____________
+# _____________ T.23 Euler’s Formula & De Moivre’s Theorem _____________

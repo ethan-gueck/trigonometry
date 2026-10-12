@@ -48,12 +48,12 @@ def angle_ratios(theta: float) -> dict:
 
 
 def hypotenuse(o: float, a: float) -> float:
-    """h = √(o² + a²). Page plumbing (the Pythagorean theorem, G.3), not part of the T.1 card."""
+    """h = √(o² + a²). Page plumbing (the Pythagorean theorem, G.7), not part of the T.1 card."""
     return (o * o + a * a) ** 0.5
 
 
 def angle_of(o: float, a: float) -> float:
-    """θ in radians from its opposite and adjacent sides. Page plumbing (an inverse function, T.10)."""
+    """θ in radians from its opposite and adjacent sides. Page plumbing (an inverse function, T.14)."""
     return math.atan2(o, a)
 
 

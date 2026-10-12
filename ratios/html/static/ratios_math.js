@@ -38,9 +38,9 @@
     csc: clean(cosecantTheta(theta)), sec: clean(secantTheta(theta)), cot: clean(cotangentTheta(theta)),
   });
 
-  /** h = √(o² + a²): page plumbing (G.3). */
+  /** h = √(o² + a²): page plumbing (G.7). */
   const hypotenuse = (o, a) => (o * o + a * a) ** 0.5;
-  /** θ in radians from its opposite and adjacent sides: page plumbing (T.10). */
+  /** θ in radians from its opposite and adjacent sides: page plumbing (T.14). */
   const angleOf = (o, a) => Math.atan2(o, a);
   const toRadians = (degrees) => degrees * Math.PI / 180;
   const toDegrees = (radians) => radians * 180 / Math.PI;
